@@ -44,10 +44,10 @@
             </div>
             <div class="page-bottom">
                 <div class="cop-icon">
-                    <img :src="item"v-for="(item, i) in copIcon" :key="i+1" />
+                    <img :src="item" v-for="(item, i) in copIcon" :key="i+1" />
                 </div>
                 <div class="sup-icon">
-                    <img :src="item"v-for="(item, i) in supIcon" :key="i+1" />
+                    <img :src="item" v-for="(item, i) in supIcon" :key="i+1" />
                 </div>
                 <div class="service-title">{{GLOBAL.lanLocal['serviceterms']}}</div>
                 <div class="service-content">{{serviceContent}}</div>
