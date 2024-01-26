@@ -896,11 +896,11 @@ export default {
             height: 20px;
             line-height: 20px;
             text-align:center;
-            font-size: 10px;
+            font-size: 16px;
             font-family: Arial;
             background: rgb(40,38,49);
             border-radius: 10px;
-            color: #626070;
+            color: white;
         }
         >img {
             height: 20px;
