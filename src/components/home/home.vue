@@ -1,6 +1,11 @@
 <template>
     <div style="position: relative;">
         <div class="main-page" v-if="!allGameCover">
+            <div class="back-video">
+                <video autoplay muted loop id="Video" width="100%">
+                    <source src="https://xb-web.s3.sa-east-1.amazonaws.com/video/calica777slots_video.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="banner">
                 <div class="recommendPage">
                     <swiper :options="swiperOption" ref="mySwiper">
@@ -30,20 +35,22 @@
                                                 <div class="all" @click="showAllGame(game.type)">{{GLOBAL.lanLocal['all']}} {{game.list.length}}</div>
                                             </div>
                                         </div>
-                                        <template v-for="(item,i) in game.list">
-                                            <div class="game-item no-animate" v-if="i < 10" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
-                                                <div class="game-mask">
-                                                    <div class="game-play">
-                                                        <p>To play</p>
-                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAYAAAAGuM1UAAAAAXNSR0IArs4c6QAAAMxJREFUKFNjZMADmvz/mzP9Z6j/w84Q1rCa8QtIKSM+DSXuD6LERCWXsrOzHfr1i8GrdDHjV7waEsxPqPLzcx80MFGX5ORi3c/9h8GHce/C///h9vxHsg+LUUzMDCsY21NuIyvDcCELKxODg58sw///DAzbl95dz5hseTIUlz/4hVk5EyrUu3gFWMXntd5+/fLBd2e8fvj142/W969/p04qvv368c3vzrOOm1zGqyHN+nS6oDhr8/vnf8CKCQYrSEGG5QXpGccNnsKcDQB6PkZJpLh2AgAAAABJRU5ErkJggg==" alt="" />
+                                        <div class="game-cards">
+                                            <template v-for="(item,i) in game.list">
+                                                <div class="game-item no-animate" v-if="i < 12" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
+                                                    <div class="game-mask">
+                                                        <div class="game-play">
+                                                            <p>To play</p>
+                                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAYAAAAGuM1UAAAAAXNSR0IArs4c6QAAAMxJREFUKFNjZMADmvz/mzP9Z6j/w84Q1rCa8QtIKSM+DSXuD6LERCWXsrOzHfr1i8GrdDHjV7waEsxPqPLzcx80MFGX5ORi3c/9h8GHce/C///h9vxHsg+LUUzMDCsY21NuIyvDcCELKxODg58sw///DAzbl95dz5hseTIUlz/4hVk5EyrUu3gFWMXntd5+/fLBd2e8fvj142/W969/p04qvv368c3vzrOOm1zGqyHN+nS6oDhr8/vnf8CKCQYrSEGG5QXpGccNnsKcDQB6PkZJpLh2AgAAAABJRU5ErkJggg==" alt="" />
+                                                        </div>
                                                     </div>
+                                                    <div class="game-heart">
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAYCAYAAADpnJ2CAAAAAXNSR0IArs4c6QAAA5FJREFUSEu1lluIlWUUhp/XQ2pZWgkKoRFUolJdpN0oKAaGghclaHQABRXEAwUFYqGloKioeZEE5gElUkITjTSCQvFGxBsFRTyFF6mRpeY5dcU7rG/z7z0ze9OFP/zMMLP296z1rnetb4smT0T0Bx4B/pB0p0VsP+BR4E9JNzuLVeM/ImI0MBsYA9wA/gWeAs4B3wDrJfnvRMSrwDxgHHAXuA08CVwCtgNfSvq7yqgBI+JxHwa8DGwGDgLONIAuwAvAJMCQGfn7+Iz9FbheiX0WeBMY6+Ql7S7QNmBE9AZ+AY4B67IyS3gvAw3sCnQDXsoYxy8FbmXcgwqwO9ATGAysBBZJ2uqzCnBLfmgt8E9WZikL0HEG+jX8aeAvwJD7lZ8+0/93YgY+BjyXyk2QdFQR8Vr25h3gckpTzbqo4YP8Gl5aYbkNLdWVWANtNgOfACZaXklvGOi+/Q5sA640yOmDihIFVDWagdW3xDoxy2rXGmgjfW8jGngqXXkauJZAO+6BJB9WeyKiwL4GvgN+aiO0j6vKan8YuBDYa6Bt+3r25Gqa4K6kUl3d5ESEe2PJ10r6oKN5y8Tc79JHA2daQQMto+1rEzwMoCvsWwUeBz4CTibQQ10naUT0yUVgSW0GD/UPwIas8IKkQ6XaiGiU1Ivjc2CnK/QoeOY2VUzjjdFmd/cnIuYDy5qsNn++t6R7CWs0jdfeLmC4TxuSzZ+SK8lz6B65yjJjvYARORaucB+ww6srk/AqO5HjUmA9ciysjkfuRUmTy+CvytX1aUVWQz38tUpzK7UzTZqkLAfPoGEeCffvFWANMErSbwXooJ05U7ZvmUdLWzZO2LmNLk1YdfUZZkUMGwksAaZJ+rm22jJzD+pXwFDgQ+BizmQVWjbKF9mT/SmjEy7rzDBvmHeB94HJkg7XLe+G4V4ATAXmAF4Kdq2hpaeW2AvB6hQ3Otkio0fArXnGN4okJ1572t2HWe3bueU/BpxdgdqNVaCHu9wMrmpg9uuIE5bkJOueDoEJtf7fAjbUjw3ylgpLZYb5nlwBLJfkK67Dp1NgQp8H9uTrOfWFXKR1dR4R98yX7SzgPUkHmsxr7ZrpNCYifPd50/tGWZ4zavO4f4Z5nw4D3pJ0vhmszqXNAiPChtgIDAIW553pgf4MOANMl+S5bfk0lbTBvY79BJgLXAAGuGeSVrektHJpi2p9ofpL0tny7e3/AP8DbyFfB9scQwkAAAAASUVORK5CYII=" alt="" />
+                                                    </div>
+                                                    <img class="game-img" :src="sourceUrl+item.roomid+'_'+GLOBAL.lanCode+'.png'" />
                                                 </div>
-                                                <div class="game-heart">
-                                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAYCAYAAADpnJ2CAAAAAXNSR0IArs4c6QAAA5FJREFUSEu1lluIlWUUhp/XQ2pZWgkKoRFUolJdpN0oKAaGghclaHQABRXEAwUFYqGloKioeZEE5gElUkITjTSCQvFGxBsFRTyFF6mRpeY5dcU7rG/z7z0ze9OFP/zMMLP296z1rnetb4smT0T0Bx4B/pB0p0VsP+BR4E9JNzuLVeM/ImI0MBsYA9wA/gWeAs4B3wDrJfnvRMSrwDxgHHAXuA08CVwCtgNfSvq7yqgBI+JxHwa8DGwGDgLONIAuwAvAJMCQGfn7+Iz9FbheiX0WeBMY6+Ql7S7QNmBE9AZ+AY4B67IyS3gvAw3sCnQDXsoYxy8FbmXcgwqwO9ATGAysBBZJ2uqzCnBLfmgt8E9WZikL0HEG+jX8aeAvwJD7lZ8+0/93YgY+BjyXyk2QdFQR8Vr25h3gckpTzbqo4YP8Gl5aYbkNLdWVWANtNgOfACZaXklvGOi+/Q5sA640yOmDihIFVDWagdW3xDoxy2rXGmgjfW8jGngqXXkauJZAO+6BJB9WeyKiwL4GvgN+aiO0j6vKan8YuBDYa6Bt+3r25Gqa4K6kUl3d5ESEe2PJ10r6oKN5y8Tc79JHA2daQQMto+1rEzwMoCvsWwUeBz4CTibQQ10naUT0yUVgSW0GD/UPwIas8IKkQ6XaiGiU1Ivjc2CnK/QoeOY2VUzjjdFmd/cnIuYDy5qsNn++t6R7CWs0jdfeLmC4TxuSzZ+SK8lz6B65yjJjvYARORaucB+ww6srk/AqO5HjUmA9ciysjkfuRUmTy+CvytX1aUVWQz38tUpzK7UzTZqkLAfPoGEeCffvFWANMErSbwXooJ05U7ZvmUdLWzZO2LmNLk1YdfUZZkUMGwksAaZJ+rm22jJzD+pXwFDgQ+BizmQVWjbKF9mT/SmjEy7rzDBvmHeB94HJkg7XLe+G4V4ATAXmAF4Kdq2hpaeW2AvB6hQ3Otkio0fArXnGN4okJ1572t2HWe3bueU/BpxdgdqNVaCHu9wMrmpg9uuIE5bkJOueDoEJtf7fAjbUjw3ylgpLZYb5nlwBLJfkK67Dp1NgQp8H9uTrOfWFXKR1dR4R98yX7SzgPUkHmsxr7ZrpNCYifPd50/tGWZ4zavO4f4Z5nw4D3pJ0vhmszqXNAiPChtgIDAIW553pgf4MOANMl+S5bfk0lbTBvY79BJgLXAAGuGeSVrektHJpi2p9ofpL0tny7e3/AP8DbyFfB9scQwkAAAAASUVORK5CYII=" alt="" />
-                                                </div>
-                                                <img class="game-img" :src="sourceUrl+item.roomid+'_'+GLOBAL.lanCode+'.png'" />
-                                            </div>
-                                        </template>
+                                            </template>
+                                        </div>
                                     </template>
                                 </div>
                             </div>
@@ -344,6 +351,20 @@ export default {
     background-color: #201f27;
 }
 
+.back-video {
+    position: fixed;
+    opacity: 0.5;
+    width: 100%;
+    height: 100vh;
+}
+
+@media only screen and (max-width: 1530px) {
+  #Video {
+        height: 100%;
+        width: auto !important;
+    }
+}
+
 .line-box:focus-visible {
     outline: none;
 }
@@ -481,7 +502,7 @@ export default {
 }
 
 .banner {
-    width: 94%;
+    width: 90%;
     height: auto;
     font-size: 0;
     margin: 12px auto 22px;
@@ -504,12 +525,12 @@ export default {
 }
 
 .nav-menu {
-    width: 100%;
+    width: 90%;
+    margin: auto;
     overflow: scroll;
     display: flex;
     align-items:center;
     justify-content:space-between;
-    padding: 0 16px;
     box-sizing: border-box;
 
     .nav-item:not(:last-child) {
@@ -560,10 +581,10 @@ export default {
 
 .wrap-container {
     display: flex;
-
+    width: 90%;
+    margin: auto;
     .item-content {
         width: 100%;
-        padding: 0 12px;
         margin: auto;
 
         .view-game-container {
@@ -889,8 +910,14 @@ export default {
     }
 }
 
+.game-cards {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
 .game-item {
-    width: 10%;
+    width: 150px;
     height: auto;
     padding: 0 2px 5px;
     position: relative;
@@ -969,6 +996,12 @@ export default {
         top: 0;
         transition: opacity .2s cubic-bezier(.4, 0, .6, 1);
     }
+}
+
+@media only screen and (max-width: 480px) {
+  .game-item {
+    width: 48%;
+  }
 }
 
 .game-item:hover {
@@ -1240,10 +1273,12 @@ export default {
     justify-content: center;
 }
 .page-bottom {
+    width: 90%;
+    margin: auto;
     margin: 40px 0.6rem 0;
     border-top: 2px solid rgb(23,26,30);
     border-bottom: 2px solid rgb(23,26,30);
-    padding: 14px 0;
+    padding: 14px 0px;
     .cop-icon {
         display: flex;
         align-content:center;
