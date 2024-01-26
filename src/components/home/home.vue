@@ -31,7 +31,16 @@
                                             </div>
                                         </div>
                                         <template v-for="(item,i) in game.list">
-                                            <div class="game-item no-animate" v-if="i < 6" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
+                                            <div class="game-item no-animate" v-if="i < 10" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
+                                                <div class="game-mask">
+                                                    <div class="game-play">
+                                                        <p>To play</p>
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAYAAAAGuM1UAAAAAXNSR0IArs4c6QAAAMxJREFUKFNjZMADmvz/mzP9Z6j/w84Q1rCa8QtIKSM+DSXuD6LERCWXsrOzHfr1i8GrdDHjV7waEsxPqPLzcx80MFGX5ORi3c/9h8GHce/C///h9vxHsg+LUUzMDCsY21NuIyvDcCELKxODg58sw///DAzbl95dz5hseTIUlz/4hVk5EyrUu3gFWMXntd5+/fLBd2e8fvj142/W969/p04qvv368c3vzrOOm1zGqyHN+nS6oDhr8/vnf8CKCQYrSEGG5QXpGccNnsKcDQB6PkZJpLh2AgAAAABJRU5ErkJggg==" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="game-heart">
+                                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAYCAYAAADpnJ2CAAAAAXNSR0IArs4c6QAAA5FJREFUSEu1lluIlWUUhp/XQ2pZWgkKoRFUolJdpN0oKAaGghclaHQABRXEAwUFYqGloKioeZEE5gElUkITjTSCQvFGxBsFRTyFF6mRpeY5dcU7rG/z7z0ze9OFP/zMMLP296z1rnetb4smT0T0Bx4B/pB0p0VsP+BR4E9JNzuLVeM/ImI0MBsYA9wA/gWeAs4B3wDrJfnvRMSrwDxgHHAXuA08CVwCtgNfSvq7yqgBI+JxHwa8DGwGDgLONIAuwAvAJMCQGfn7+Iz9FbheiX0WeBMY6+Ql7S7QNmBE9AZ+AY4B67IyS3gvAw3sCnQDXsoYxy8FbmXcgwqwO9ATGAysBBZJ2uqzCnBLfmgt8E9WZikL0HEG+jX8aeAvwJD7lZ8+0/93YgY+BjyXyk2QdFQR8Vr25h3gckpTzbqo4YP8Gl5aYbkNLdWVWANtNgOfACZaXklvGOi+/Q5sA640yOmDihIFVDWagdW3xDoxy2rXGmgjfW8jGngqXXkauJZAO+6BJB9WeyKiwL4GvgN+aiO0j6vKan8YuBDYa6Bt+3r25Gqa4K6kUl3d5ESEe2PJ10r6oKN5y8Tc79JHA2daQQMto+1rEzwMoCvsWwUeBz4CTibQQ10naUT0yUVgSW0GD/UPwIas8IKkQ6XaiGiU1Ivjc2CnK/QoeOY2VUzjjdFmd/cnIuYDy5qsNn++t6R7CWs0jdfeLmC4TxuSzZ+SK8lz6B65yjJjvYARORaucB+ww6srk/AqO5HjUmA9ciysjkfuRUmTy+CvytX1aUVWQz38tUpzK7UzTZqkLAfPoGEeCffvFWANMErSbwXooJ05U7ZvmUdLWzZO2LmNLk1YdfUZZkUMGwksAaZJ+rm22jJzD+pXwFDgQ+BizmQVWjbKF9mT/SmjEy7rzDBvmHeB94HJkg7XLe+G4V4ATAXmAF4Kdq2hpaeW2AvB6hQ3Otkio0fArXnGN4okJ1572t2HWe3bueU/BpxdgdqNVaCHu9wMrmpg9uuIE5bkJOueDoEJtf7fAjbUjw3ylgpLZYb5nlwBLJfkK67Dp1NgQp8H9uTrOfWFXKR1dR4R98yX7SzgPUkHmsxr7ZrpNCYifPd50/tGWZ4zavO4f4Z5nw4D3pJ0vhmszqXNAiPChtgIDAIW553pgf4MOANMl+S5bfk0lbTBvY79BJgLXAAGuGeSVrektHJpi2p9ofpL0tny7e3/AP8DbyFfB9scQwkAAAAASUVORK5CYII=" alt="" />
+                                                </div>
                                                 <img class="game-img" :src="sourceUrl+item.roomid+'_'+GLOBAL.lanCode+'.png'" />
                                             </div>
                                         </template>
@@ -62,18 +71,18 @@
                             <div class="container-list-game-slot">
                                 <div class="list-game-bacarat">
                                     <div class="game-menu">
-                                            <img class="menu-icon" v-if="allGame.title" :src="sourceUrl+allGame.title+'.png'" />
-                                            <span>{{allGame.title}}</span>
-                                            <div class="right" @click="showAllGame(999)">
-                                                <img :src="require('../../assets/index/close.png')" />
-                                            </div>
+                                        <img class="menu-icon" v-if="allGame.title" :src="sourceUrl+allGame.title+'.png'" />
+                                        <span>{{allGame.title}}</span>
+                                        <div class="right" @click="showAllGame(999)">
+                                            <img :src="require('../../assets/index/close.png')" />
                                         </div>
-                                        <template v-for="(item,i) in allGame.list">
-                                            <div class="game-item no-animate" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
-                                                <img class="game-img" v-if="allGame.type == 3" :src="'https://lucas999.prerelease-env.biz/game_pic/square/200/'+item.gameid+'.png'" />
-                                                <img class="game-img" v-else :src="sourceUrl+item.roomid+'_'+GLOBAL.lanCode+'.png'" />
-                                            </div>
-                                        </template>
+                                    </div>
+                                    <template v-for="(item,i) in allGame.list">
+                                        <div class="game-item no-animate" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
+                                            <img class="game-img" v-if="allGame.type == 3" :src="'https://lucas999.prerelease-env.biz/game_pic/square/200/'+item.gameid+'.png'" />
+                                            <img class="game-img" v-else :src="sourceUrl+item.roomid+'_'+GLOBAL.lanCode+'.png'" />
+                                        </div>
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +130,7 @@ export default {
                 require('../../assets/index/FB-.png'),
             ],
             swiperOption: {
-                loop: true,
+                loop: false,
                 autoplay: {
                     delay: 5000,
                     stopOnLastSlide: false,
@@ -176,10 +185,11 @@ export default {
             let item = '../../../static/banner/' + index + "_" +this.GLOBAL.lanCode + '.jpg' 
             this.bannerList.push(item)
         }
+        
     },
     created() {
         this.setData()
-        this.gameList = loadFile("static/game.json", false);
+        this.gameList = loadFile("static/game2.json", false);
 
         this.config = loadFile("static/config.json", false);
         document.title = this.config.website
@@ -880,7 +890,7 @@ export default {
 }
 
 .game-item {
-    width: 33.33%;
+    width: 10%;
     height: auto;
     padding: 0 2px 5px;
     position: relative;
@@ -997,13 +1007,67 @@ export default {
     filter: unset !important;
 }
 
+.game-play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-play p {
+    margin-right: 5px;
+}
+
+.game-mask {
+    position: absolute;
+    align-items: center;
+    border: 1px solid #9262FF;
+    background-origin: border-box!important;
+    background-clip: content-box,border-box!important;
+    background-image: linear-gradient(360deg,#331A6F 0%,rgba(65,35,136,0) 100%),linear-gradient(179deg,rgba(121,95,255,0),rgba(27,14,58,.5))!important;
+    box-shadow: 0 2px #9262ff;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    height: calc(100% - 2px);
+    opacity: 0;
+    transition: all .3s ease 0s;
+    width: calc(100% - 2px);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.game-mask:hover {
+    opacity: 1;
+    transition: all .3s ease 0s;
+}
+
 .game-img {
     width: 100%;
     height: 100%;
     border-radius: 10px;
     -o-object-fit: fill;
     object-fit: fill;
-    // filter: drop-shadow(3px 3px 3px #000);
+    filter: drop-shadow(3px 3px 3px #000);
+}
+
+.game-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,.5);
+    border-radius: 8px;  
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 
 .game-name {
