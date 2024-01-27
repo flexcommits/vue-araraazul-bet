@@ -1,0 +1,62 @@
+[
+    {
+        "title":"HOT GAME",
+        "type": 0,
+        "list": [
+            {"gameid": 1, "roomid": 1257, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1258, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1259, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1254, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1256, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1257, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1258, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1259, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1254, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1255, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1256, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1257, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1258, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1259, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1254, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1255, "open": 1, "type": 1},
+            {"gameid": 1, "roomid": 1253, "open": 1, "type": 1}
+        ]
+    },{
+        "title":"PG",
+        "type": 4,
+        "list": [
+
+            {"gameid": 126, "roomid": 50011, "open": 1, "type": 4}
+        ]
+    },{
+        "title":"LUCAS",
+        "type": 1,
+        "list": [
+            {"gameid": 1256, "roomid": 1256, "open": 1, "type": 1, "v_gameid": 126, "v_roomid": 50011, "v_type": 4},
+            {"gameid": 1257, "roomid": 1257, "open": 1, "type": 1},
+            {"gameid": 1258, "roomid": 1258, "open": 1, "type": 1},
+            {"gameid": 1259, "roomid": 1259, "open": 1, "type": 1},
+            {"gameid": 1254, "roomid": 1254, "open": 1, "type": 1},
+            {"gameid": 1255, "roomid": 1255, "open": 1, "type": 1},
+            {"gameid": 1256, "roomid": 1256, "open": 1, "type": 1},
+            {"gameid": 1257, "roomid": 1257, "open": 1, "type": 1},
+            {"gameid": 1258, "roomid": 1258, "open": 1, "type": 1},
+            {"gameid": 1259, "roomid": 1259, "open": 1, "type": 1},
+            {"gameid": 1254, "roomid": 1254, "open": 1, "type": 1},
+            {"gameid": 1255, "roomid": 1255, "open": 1, "type": 1},
+            {"gameid": 1256, "roomid": 1256, "open": 1, "type": 1},
+            {"gameid": 1257, "roomid": 1257, "open": 1, "type": 1},
+            {"gameid": 1258, "roomid": 1258, "open": 1, "type": 1},
+            {"gameid": 1259, "roomid": 1259, "open": 1, "type": 1},
+            {"gameid": 1254, "roomid": 1254, "open": 1, "type": 1},
+            {"gameid": 1255, "roomid": 1255, "open": 1, "type": 1},
+            {"gameid": 1253, "roomid": 1253, "open": 1, "type": 1}
+        ]
+    },{
+        "title":"PG",
+        "type": 2,
+        "list": [
+            {"gameid": 111, "roomid": 44011, "open": 1, "type": 2}
+        ]
+    }
+]
